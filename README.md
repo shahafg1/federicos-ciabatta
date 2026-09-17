@@ -6,6 +6,7 @@ An illustrated browser game set in an Italian deli. Prepare ciabatta sandwiches,
 
 ## Features
 
+- A shared Supabase top-ten leaderboard with optional nickname submission.
 - Seven illustrated customers with distinct personalities.
 - Progressively larger recipes and up to two simultaneous orders.
 - Shared ingredient inventory and timed refills.
@@ -28,7 +29,7 @@ Open [localhost:4188](http://localhost:4188) in your browser. No package install
 With Node.js installed:
 
 ```sh
-node --test tests/engine.test.mjs
+node --test tests/*.test.mjs
 ```
 
 The engine tests cover recipes, inventory, scoring, refill timing, customer rotation, and simultaneous orders.
@@ -48,6 +49,10 @@ The engine tests cover recipes, inventory, scoring, refill timing, customer rota
 | `netlify.toml` | Static hosting configuration |
 
 `dist/` contains the hand-authored source. It is not generated build output.
+
+## Leaderboard
+
+At the end of a round, players can submit a nickname. The score and completed-order count come directly from the game state. Results are stored in Supabase and shared across devices. See [database setup and security notes](supabase/README.md) for migrations, access rules, and validation limits.
 
 ## Deployment
 
